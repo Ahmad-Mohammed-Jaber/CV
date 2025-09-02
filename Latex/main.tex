@@ -1,0 +1,298 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Ahmad Jaber's CV},
+    pdfauthor={Ahmad Jaber},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0 cm}{0 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+% ===== Header env from old CV =====
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+\newcommand{\AND}{\unskip\cleaders\copy\ANDbox\hskip\wd\ANDbox\ignorespaces}
+\newsavebox\ANDbox
+\sbox\ANDbox{$|$}
+% ==================================
+
+\begin{document}
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Ahmad Jaber
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{Amman, Jordan}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{mailto:ahmadmohjaber@gmail.com}{ahmadmohjaber@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{tel:+962781394557}{+962781394557}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{https://www.linkedin.com/in/ahmad-jaber-83653124a/}{LinkedIn}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+    \section{Education}
+
+        \begin{twocolentry}{
+            2022 – 2026
+        }
+            \textbf{Applied Science University}, BS in Computer Science
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{GPA:} 96.5\%
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Experience}
+
+    \begin{twocolentry}{
+        2025 -- Present
+    }
+        \textbf{Software Developer}, String Education
+    \end{twocolentry}
+    
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Built responsive single-page interfaces with \textbf{React} (hooks, component-driven UI) and integrated API state via \textbf{Axios}; implemented auth-aware UI flows.
+            \item Gained hands-on experience designing \textbf{RESTful APIs} with \textbf{Django \& Django REST Framework}: serializers, viewsets/routers, pagination, filtering, and response schemas.
+            \item Implemented \textbf{JWT authentication} (SimpleJWT) and role-aware permissions; enforced access rules at both view and object levels.
+            \item Defined and maintained consistent API contracts across client and server.
+            \item Used \textbf{Git} for version control and collaborative workflows.
+        \end{highlights}
+        \textbf{Tools:} React, Axios, Django, Django REST Framework, Git, JWT (SimpleJWT)
+    \end{onecolentry}
+
+    \section{Volunteering}
+
+        \begin{twocolentry}{
+            2023 -- Present
+        }
+            \textbf{Core Member}, Coding Club -- Applied Science University
+        \end{twocolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Mentored peers in competitive programming, covering algorithms and problem-solving strategies.
+                \item Organized and tested problems for faculty contests, including JPC 7 \& 8 (first-year students) and AFPC 12--14 (high school).
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            2023 -- 2024
+        }
+            \textbf{Tutor}, Revision Club -- Applied Science University
+        \end{twocolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Provided academic support to undergraduates in \textbf{Structured Programming}, \textbf{Data Structures \& Algorithms}, and \textbf{Microprocessors \& Assembly Language}.
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Achievements}
+        \vspace{0.2 cm}
+        \begin{twocolentry}{}
+            \textbf{1\textsuperscript{st} Place -- Fintech Rally 2025 (Technical Category)}
+        \end{twocolentry}
+        \begin{onecolentry}
+            Secured 1\textsuperscript{st} place in the Technical Category at Fintech Rally 2025, a national-level fintech hackathon organized by the Jordan Payments and Clearing Company (JoPACC) and JOIN Fincubator under the patronage of the Central Bank of Jordan. The competition brought together 28 university teams to develop innovative financial technologies. Our winning solution was a smart financial platform that aggregates user bank accounts into one centralized dashboard, offering real-time visibility and insights.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        \begin{twocolentry}{}
+            \textbf{ICPC Regional Finalist -- ACPC 2024}
+        \end{twocolentry}
+        \begin{onecolentry}
+            Qualified and represented Jordan at the Africa and Arab Collegiate Programming Contest (ACPC), the official regional ICPC competition, following top performance at national qualifiers.
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+        \begin{twocolentry}{}
+            \textbf{11\textsuperscript{th} Place -- Jordanian Collegiate Programming Contest (JCPC) 2024}
+        \end{twocolentry}
+        \begin{onecolentry}
+            Placed 11\textsuperscript{th} among 120 university teams in JCPC, Jordan's premier ICPC qualifying contest, demonstrating strong algorithmic and problem-solving skills.
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        \begin{twocolentry}{}
+            \textbf{12\textsuperscript{th} Place -- Amman Collegiate Programming Contest (AmmanCPC) 2025}
+        \end{twocolentry}
+        \begin{onecolentry}
+            Ranked 12\textsuperscript{th} out of 70 teams in AmmanCPC, a local ICPC-format contest for university teams in Amman, showcasing consistent competitive programming skills.
+        \end{onecolentry}
+
+        \vspace{0.5cm}
+
+     \section{Projects}
+        \vspace{0.2cm}
+        
+        \begin{twocolentry}{}
+            \textbf{Event Management System}
+        \end{twocolentry}
+        
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed a full-stack web application using \textbf{ASP.NET Core}, enabling users to create, manage, and browse events.
+                \item Structured the project using \textbf{Model-View-Controller (MVC)} architecture for clear separation of concerns and maintainability.
+                \item Implemented \textbf{user authentication}, event creation, and basic search functionality.
+                \item Designed and implemented a relational database schema with multiple entity relationships (\textbf{one-to-one}, \textbf{one-to-many}, and \textbf{many-to-many}) using \textbf{Entity Framework}.
+                \item Created complex queries and optimized database performance through proper \textbf{indexing} and \textbf{normalization}.
+                \item Worked with \textbf{C\#}, \textbf{Entity Framework}, and front-end technologies (\textbf{HTML/CSS}) to deliver core features.
+            \end{highlights}
+            \textbf{Tools:} ASP.NET Core, C\#, Entity Framework, SQL Server, HTML/CSS
+        \end{onecolentry}
+
+        \vspace{0.4cm}
+
+        \begin{twocolentry}{}
+            \textbf{Blog Management Platform}
+        \end{twocolentry}
+        
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built a blogging platform with \textbf{React}, implementing reusable components and state management for dynamic UIs.
+                \item Implemented drag-and-drop post organization using the \textbf{dnd-kit} library.
+                \item Integrated a rich-text editor with \textbf{TinyMCE}, enabling authors to format posts with headings, lists, and embedded media.
+                \item Used \textbf{JSON Server} as a mock backend to provide RESTful APIs.
+                \item Connected front-end components to the API using the native \textbf{Fetch API}, handling requests and responses securely.
+            \end{highlights}
+            \textbf{Tools:} React, Fetch API, JSON Server, dnd-kit, TinyMCE, Git
+        \end{onecolentry}
+
+        \vspace{0.4cm}
+
+        \begin{twocolentry}{}
+            \textbf{Weather App Project}
+        \end{twocolentry}
+        
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Designed and implemented data models to store user profiles, weather settings, and tags, ensuring scalability and relational consistency.
+                \item Developed \textbf{RESTful APIs} with \textbf{Django REST Framework} to deliver weather data and manage user-specific configurations.
+                \item Integrated \textbf{Redis caching} to reduce redundant external API calls and improve response times.
+                \item Secured endpoints with \textbf{JWT authentication} and applied role-based access rules to control data visibility.
+                \item Tested and validated APIs using \textbf{Postman}, ensuring reliability across multiple endpoints and user scenarios.
+                \item Applied best practices in serialization, pagination, and query optimization to maintain high performance.
+            \end{highlights}
+            \textbf{Tools:} Django, Django REST Framework, Redis, Postman, Git, JWT
+        \end{onecolentry}
+
+    \section{Technologies}        
+        \begin{onecolentry}
+            \textbf{Languages:} C++, Java, Python, C\#, SQL, HTML, CSS, JavaScript
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Technologies:} ASP.NET Core, Git, GitHub, Linux, React, Django, Django REST Framework, Redis, Postman, JWT, JSON Server, dnd-kit, TinyMCE
+        \end{onecolentry}
+
+    \section{References}
+        \begin{onecolentry}
+            Available upon request.  
+        \end{onecolentry}    
+
+\end{document}
